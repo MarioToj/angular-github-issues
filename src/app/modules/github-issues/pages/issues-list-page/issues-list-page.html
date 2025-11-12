@@ -10,9 +10,18 @@
     </div>
   </div>
 
-  <div class="mt-4 flex flex-col col-span-2">Issues</div>
+  <div class="mt-4 flex flex-col col-span-2">
+    <h3>Issues:</h3>
+
+    <a routerLink="/issue/12">Ir a issue 123</a>
+  </div>
 
   <div>
-    <h2>Labels</h2>
+    <h2>Labels:</h2>
+    @if (labelsQuery.isLoading()) {
+    <p>cargando...</p>
+    } @else {
+    <issues-labels-selector [labels]="labelsQuery.data() ?? []" />
+    }
   </div>
 </section>
